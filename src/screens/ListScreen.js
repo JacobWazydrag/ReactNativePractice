@@ -4,7 +4,7 @@ import { Text, StyleSheet, FlatList } from "react-native";
 const ListScreen = () => {
   const friends = [
     {
-      id: 1,
+      key: '1',
       name: "Leanne Graham",
       username: "Bret",
       email: "Sincere@april.biz",
@@ -27,7 +27,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 2,
+      key: '2',
       name: "Ervin Howell",
       username: "Antonette",
       email: "Shanna@melissa.tv",
@@ -45,12 +45,12 @@ const ListScreen = () => {
       website: "anastasia.net",
       company: {
         name: "Deckow-Crist",
-        catchPhrase: "Proactive didactic contingency",
+        catchPhrase: "Proactive dkeyactic contingency",
         bs: "synergize scalable supply-chains",
       },
     },
     {
-      id: 3,
+      key: '3',
       name: "Clementine Bauch",
       username: "Samantha",
       email: "Nathan@yesenia.net",
@@ -73,7 +73,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 4,
+      key: '4',
       name: "Patricia Lebsack",
       username: "Karianne",
       email: "Julianne.OConner@kory.org",
@@ -96,7 +96,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 5,
+      key: '5',
       name: "Chelsey Dietrich",
       username: "Kamren",
       email: "Lucio_Hettinger@annie.ca",
@@ -119,7 +119,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 6,
+      key: '6',
       name: "Mrs. Dennis Schulist",
       username: "Leopoldo_Corkery",
       email: "Karley_Dach@jasper.info",
@@ -136,13 +136,13 @@ const ListScreen = () => {
       phone: "1-477-935-8478 x6430",
       website: "ola.org",
       company: {
-        name: "Considine-Lockman",
+        name: "Conskeyine-Lockman",
         catchPhrase: "Synchronised bottom-line interface",
         bs: "e-enable innovative applications",
       },
     },
     {
-      id: 7,
+      key: '7',
       name: "Kurtis Weissnat",
       username: "Elwyn.Skiles",
       email: "Telly.Hoeger@billy.biz",
@@ -165,7 +165,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 8,
+      key: '8',
       name: "Nicholas Runolfsdottir V",
       username: "Maxime_Nienow",
       email: "Sherwood@rosamond.me",
@@ -188,7 +188,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 9,
+      key: '9',
       name: "Glenna Reichert",
       username: "Delphine",
       email: "Chaim_McDermott@dana.io",
@@ -211,7 +211,7 @@ const ListScreen = () => {
       },
     },
     {
-      id: 10,
+      key: '10',
       name: "Clementina DuBuque",
       username: "Moriah.Stanton",
       email: "Rey.Padberg@karina.biz",
@@ -236,15 +236,19 @@ const ListScreen = () => {
   ];
 
   return (
-      <FlatList data={friends} renderItem={({item}) => {
-          return <Text>{item.username}</Text>
+      <FlatList
+      keyExtractor={friend => friend.key} 
+      data={friends} 
+      renderItem={({item}) => {
+          return <Text style={styles.listStyles} >{item.name} - {item.email} - {item.phone}</Text>
       }} />
   );
 };
 
 const styles = StyleSheet.create({
   listStyles: {
-    fontSize: 20,
+    fontSize: 15,
+    marginVertical: 50
   },
 });
 export default ListScreen;
